@@ -15,9 +15,21 @@ class Werewolf {
     if (this.count % 2 === 0) {
       this.human = true;
       this.wolf = false;
+      this.hungry = false;
     } else {
       this.human = false;
       this.wolf = true;
+    }
+  }
+  eat(victim) {
+    if (this.human === true) {
+      victim.alive = true;
+    } else {
+      victim.alive = false;
+    }
+
+    if (this.hungry === true) {
+      return victim.name;
     }
   }
 }

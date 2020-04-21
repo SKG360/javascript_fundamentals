@@ -69,45 +69,70 @@ describe('Werewolf', function() {
     assert.equal(werewolf.hungry, true);
   });
 
-  it.skip('should be able to eat(victim) once hungry', function() {
-    // your code here
+  it('should be able to eat(victim) once hungry', function() {
+    var werewolf = new Werewolf('Lousia', 'Gusto');
+    var victim = new Victim('Jorge');
+
+    werewolf.change();
+    assert.equal(werewolf.eat(victim), 'Jorge');
   });
 
-  it.skip('should not be hungry after changing back to human form', function() {
-    // your code here
+  it('should not be hungry after changing back to human form', function() {
+    var werewolf = new Werewolf('Lousia', 'Gusto');
+    var victim = new Victim('Jorge');
+
+    werewolf.change();
+    werewolf.change();
+
+    assert.equal(werewolf.human, true);
+    assert.equal(werewolf.hungry, false);
   });
 
-  it.skip('should change back to human form after eating', function() {
-    // your code here
+  it('should change back to human form after eating', function() {
+    var werewolf = new Werewolf('Lousia', 'Gusto');
+    var victim = new Victim('Jorge');
+
+    werewolf.change();
+    werewolf.eat(victim);
+    werewolf.change();
+
+    assert.equal(werewolf.human, true);
   });
 
-  it.skip('should not be able to consume victim in human form', function() {
-    // your code here
+  it('should not be able to consume victim in human form', function() {
+    var werewolf = new Werewolf('Lousia', 'Gusto');
+    var victim = new Victim('Jorge');
+
+    werewolf.eat(victim);
+
+    assert.equal(werewolf.human, true);
+    assert.equal(werewolf.hungry, false);
+    assert.equal(victim.alive, true);
   });
 });
 
 describe('Victim', function() {
 
-  it.skip('should be a function', function() {
+  it('should be a function', function() {
     assert.isFunction(Victim);
   });
 
-  it.skip('should instantiate our good friend, Victim', function() {
+  it('should instantiate our good friend, Victim', function() {
     var victim = new Victim();
     assert.isObject(victim);
   });
 
-  it.skip('should have a name', function() {
+  it('should have a name', function() {
     var victim = new Victim('Jorge');
     assert.equal(victim.name, 'Jorge');
   });
 
-  it.skip('should start alive', function() {
+  it('should start alive', function() {
     var victim = new Victim('TayTay');
     assert.equal(victim.alive, true);
   });
 
-  it.skip('should be dead after being eaten', function() {
+  it('should be dead after being eaten', function() {
     var werewolf = new Werewolf('TayTay');
     var victim = new Victim('TayTay');
 
